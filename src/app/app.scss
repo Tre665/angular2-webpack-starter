@@ -1,0 +1,49 @@
+html, body{
+  height: 100%;
+  background: #F4FAFA;
+  
+  /**
+  * Added for testing if the autoprefixer works as intented.
+  * This will break the layout, but it's easy to see if the autoprefixing works as intended.
+  *
+  * With the config of 'ie >= 10, last 3 versions' it should be compiled to 
+  * display: -webkit-flex;
+  * display: -ms-flexbox;
+  * display: flex;
+  * 
+  * Unfortunately only the -ms-flexbox prefix will be added.
+  * See here for quick checks of the browser pattern:
+  * http://autoprefixer.github.io
+  */
+  display: flex; 
+}
+button.active{
+  background: #fff;
+  color: #009688;
+}
+button.active:hover{
+  color: #fff;
+}
+.fill{
+  flex: 1 1 auto;
+}
+.app-state{
+  margin: 15px;
+  flex: 1;
+}
+.home{
+  flex: 1;
+}
+md-content{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+footer{
+  flex: 0 0 60px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
