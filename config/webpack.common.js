@@ -175,7 +175,17 @@ module.exports = {
         test: /\.html$/,
         loader: 'raw-loader',
         exclude: [helpers.root('src/index.html')]
-      }
+      },
+      
+      /*
+       * Adds support for SCSS/PostCss Compiling 
+       * 
+       */
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        loader: 'to-string!css-loader!postcss-loader!sass-loader'
+      },
 
     ]
 
@@ -258,6 +268,19 @@ module.exports = {
     module: false,
     clearImmediate: false,
     setImmediate: false
-  }
+  },
+  
+  /*
+   * PostCss configuration of the supported browsers.
+   * For configuration syntax
+   * 
+   * See: https://github.com/postcss/autoprefixer and 
+   *      https://github.com/ai/browserslist#queries 
+   */
+  postcss: [
+        require('postcss-cssnext')({
+            browsers: ['ie >= 10', 'last 3 versions']
+        })
+  ],
 
 };
